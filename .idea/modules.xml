@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MapasQliaos.iml" filepath="$PROJECT_DIR$/MapasQliaos.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jfra-maps.iml" filepath="$PROJECT_DIR$/jfra-maps.iml" />
     </modules>
   </component>
 </project>
