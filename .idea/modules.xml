@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file:///mnt/A610BC9110BC6A47/projects/github/memento-maps/app/app.iml" filepath="/mnt/A610BC9110BC6A47/projects/github/memento-maps/app/app.iml" />
       <module fileurl="file:///mnt/A610BC9110BC6A47/projects/github/memento-maps/memento-maps.iml" filepath="/mnt/A610BC9110BC6A47/projects/github/memento-maps/memento-maps.iml" />
+      <module fileurl="file:///mnt/A610BC9110BC6A47/projects/github/memento-maps/model/model.iml" filepath="/mnt/A610BC9110BC6A47/projects/github/memento-maps/model/model.iml" />
     </modules>
   </component>
 </project>

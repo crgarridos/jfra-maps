@@ -16,13 +16,15 @@ import retrofit2.Retrofit
 import com.google.gson.Gson
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
+import com.tochange.memento_maps.di.qualifier.Cached
+import com.tochange.memento_maps.di.qualifier.NonCached
 
 
 @Module
 class NetModule {
     @Singleton
     @Provides
-    @Named("cached")
+//    @Cached
     fun provideOkHttpClient(): OkHttpClient {
         val cache = Cache(Environment.getDownloadCacheDirectory(), 10 * 1024 * 1024)
         return OkHttpClient.Builder()
@@ -32,15 +34,15 @@ class NetModule {
                 .build()
     }
 
-    @Singleton
-    @Provides
-    @Named("non_cached")
-    fun provideNonCachedOkHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder()
-                .readTimeout(1, TimeUnit.MINUTES)
-                .writeTimeout(1, TimeUnit.MINUTES)
-                .build()
-    }
+//    @Singleton
+//    @Provides
+//    @NonCached
+//    fun provideNonCachedOkHttpClient(): OkHttpClient {
+//        return OkHttpClient.Builder()
+//                .readTimeout(1, TimeUnit.MINUTES)
+//                .writeTimeout(1, TimeUnit.MINUTES)
+//                .build()
+//    }
 
     @Provides
     @Singleton
@@ -52,7 +54,7 @@ class NetModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(gson: Gson, @Named("cached") client: OkHttpClient): Retrofit.Builder {
+    fun provideRetrofit(gson: Gson, client: OkHttpClient): Retrofit.Builder {
         return Retrofit.Builder()
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))

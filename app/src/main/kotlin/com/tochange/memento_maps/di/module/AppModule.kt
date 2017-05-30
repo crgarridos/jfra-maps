@@ -3,19 +3,19 @@ package com.tochange.memento_maps.di.module
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
-import com.tochange.memento_maps.Application
+import com.tochange.memento_maps.MementoApp
 import com.tochange.memento_maps.utils.RxBus
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class AppModule(var app: Application) {
+class AppModule(var app: MementoApp) {
 
 
     @Provides
     @Singleton
-    fun provideApp(): Application = app
+    fun provideApp(): MementoApp = app
 
     @Provides
     @Singleton

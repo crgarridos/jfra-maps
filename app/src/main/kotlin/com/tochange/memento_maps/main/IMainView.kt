@@ -1,5 +1,9 @@
 package com.tochange.memento_maps.main
 
-interface IMainView {
+import com.tochange.memento_maps.base.IBaseView
+import com.tochange.memento_maps.pojo.User
 
+interface IMainView : IBaseView{
+    fun showUsers(users: List<User>)
+    fun showErrorRetrivingUsers()
 }
