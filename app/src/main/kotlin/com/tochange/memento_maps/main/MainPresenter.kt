@@ -18,6 +18,8 @@ class MainPresenter : BasePresenter<IMainView>(){
         val juan = User("juancho", "CL", listOf("https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"))
         val pepe = User("pepiton", "PE")
         val cholo = User("cholomon", "BO")
+
+        val juanPeruano = juan.copy(country = "PE")
         loadUsersSubscription = Observable.just(listOf(juan))//, listOf(pepe, cholo))
                 .delay(3, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io())
