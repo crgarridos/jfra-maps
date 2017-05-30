@@ -1,12 +1,12 @@
 package com.tochange.memento_maps.main
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import com.tochange.memento_maps.MementoApp
 import com.tochange.memento_maps.R
-import com.tochange.memento_maps.base.BaseActivity
-import com.tochange.memento_maps.extensions.toast
-import com.tochange.memento_maps.pojo.User
+import com.tochange.memento_maps.entity.User
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), IMainView {
@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity(), IMainView {
                 .mainModule(MainModule(this))
                 .build()
                 .inject(this)
-        presenter.loadUserList()
     }
 
     override fun showUsers(users: List<User>) {
@@ -37,11 +36,16 @@ class MainActivity : AppCompatActivity(), IMainView {
         super.onStart()
         @Suppress("UNCHECKED_CAST")
         presenter.bind(this)
+        presenter.loadUserList()
     }
 
     override fun onStop() {
         presenter.unbind()
         super.onStop()
+    }
+
+    fun Context.toast(message: String){
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
 }

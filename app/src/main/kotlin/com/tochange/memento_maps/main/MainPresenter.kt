@@ -1,7 +1,7 @@
 package com.tochange.memento_maps.main
 
 import com.tochange.memento_maps.base.BasePresenter
-import com.tochange.memento_maps.pojo.User
+import com.tochange.memento_maps.entity.User
 
 
 class MainPresenter : BasePresenter<IMainView>(){

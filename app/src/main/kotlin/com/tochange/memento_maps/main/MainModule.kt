@@ -13,4 +13,10 @@ class MainModule(private val view: IMainView) {
     internal fun provideView(): IMainView {
         return view
     }
+
+    @Provides
+    @ActivityScope
+    internal fun providePresenter(): MainPresenter {
+        return MainPresenter()
+    }
 }
