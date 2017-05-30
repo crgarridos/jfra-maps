@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MapasQliaos.iml" filepath="$PROJECT_DIR$/MapasQliaos.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jfra-maps.iml" filepath="$PROJECT_DIR$/jfra-maps.iml" />
+      <module fileurl="file:///mnt/A610BC9110BC6A47/projects/github/memento-maps/app/app.iml" filepath="/mnt/A610BC9110BC6A47/projects/github/memento-maps/app/app.iml" />
+      <module fileurl="file:///mnt/A610BC9110BC6A47/projects/github/memento-maps/memento-maps.iml" filepath="/mnt/A610BC9110BC6A47/projects/github/memento-maps/memento-maps.iml" />
     </modules>
   </component>
 </project>

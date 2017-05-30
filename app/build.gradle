@@ -1,41 +1,104 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'kotlin'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'io.fabric'
+
+
+def STRING = 'String'
+def BUILD_TIME = 'BUILD_TIME'
+
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion "25.0.3"
+
     defaultConfig {
-        applicationId "com.jfra.mapas.mapaqliaos"
-        minSdkVersion 16
-        targetSdkVersion 25
+        applicationId "com.tochange.memento_maps"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "0.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField STRING, BUILD_TIME, "\"${rootProject.ext.buildTime}\""
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    sourceSets{
+	main.java.srcDirs += 'src/main/kotlin'
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
     }
 }
 
 
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.google.android.gms:play-services-maps:10.2.1'
-    compile 'com.android.support:design:25.3.1'
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+    mavenCentral()
 }
 
-repositories {
-    mavenCentral()
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    //supportLib
+    compile rootProject.ext.supportLib
+    compile rootProject.ext.supportLibAppCompat
+    compile rootProject.ext.supportLibDesign
+    compile rootProject.ext.supportLibRecyclerview
+    compile rootProject.ext.supportLibCardview
+
+    //Constraint layout
+    compile rootProject.ext.constraintLayout
+
+    //Play services
+    compile rootProject.ext.playServicesMaps
+
+    //timber
+    compile rootProject.ext.timber
+
+    //crashlytics
+    compile (rootProject.ext.crashlytics){
+        transitive = true;
+    }
+
+    //di
+    compile rootProject.ext.dagger
+    kapt rootProject.ext.daggerApt
+    //compile rootProject.ext.daggerSupport
+    //annotationProcessor rootProject.ext.daggerAnnotation
+
+    //rx
+    compile rootProject.ext.rxJava
+    compile rootProject.ext.rxAndroid
+    compile rootProject.ext.rxKotlin
+
+    
+    //net
+    compile rootProject.ext.retrofit
+    compile rootProject.ext.okHttp
+    compile rootProject.ext.gson
+    compile rootProject.ext.rxJavaAdapter
+    compile rootProject.ext.gsonConverter
+    
+
+    
+    //picasso
+    compile rootProject.ext.picasso
+    
+
+    //test
+    testCompile 'junit:junit:4.12'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs'
+    })
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
