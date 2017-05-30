@@ -5,5 +5,5 @@ import com.tochange.memento_maps.entity.User
 
 interface IMainView : IBaseView{
     fun showUsers(users: List<User>)
-    fun showErrorRetrivingUsers()
+    fun showErrorRetrivingUsers(error: Throwable)
 }

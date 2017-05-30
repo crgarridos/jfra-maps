@@ -16,4 +16,6 @@ abstract class BasePresenter<V: IBaseView>{
         this.view = null
     }
 
+
+    abstract fun onDestroy()
 }
