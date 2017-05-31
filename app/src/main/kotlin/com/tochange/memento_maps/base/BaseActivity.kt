@@ -2,7 +2,7 @@ package com.tochange.memento_maps.base
 
 import android.support.v7.app.AppCompatActivity
 
-abstract class BaseActivity : AppCompatActivity(), IBaseView {
+open class BaseActivity : AppCompatActivity(), IBaseView {
 //
 //    abstract var presenter : P
 //

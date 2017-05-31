@@ -1,17 +1,18 @@
 package com.tochange.memento_maps.base
 
-/**
- * Created by cristian on 30/05/17.
- */
-open  class BasePresenter<T: IBaseView> {
+open class BasePresenter<V: IBaseView>{
 
-    protected var view : T? = null
+    protected var view : V? = null
 
-    fun bind(view : T){
+
+    fun bind(view : V){
         this.view = view
     }
 
     fun unbind(){
-        view = null
+        this.view = null
     }
+
+
+   open  fun onDestroy(){}
 }

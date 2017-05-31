@@ -2,13 +2,11 @@ package com.tochange.memento_maps.map
 
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.tochange.memento_maps.R
+import kotlinx.android.synthetic.main.activity_maps.*
 
 class MapsActivity : FragmentActivity(), OnMapReadyCallback {
 
@@ -17,10 +15,7 @@ class MapsActivity : FragmentActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        val mapFragment = supportFragmentManager
-                .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+        map.getMapAsync(this)
     }
 
 

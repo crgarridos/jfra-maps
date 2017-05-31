@@ -1,15 +1,14 @@
 package com.tochange.memento_maps
 
 import android.app.Application
-import com.tochange.memento_maps.utils.timber.CrashReportTree
-import timber.log.Timber
 import com.crashlytics.android.Crashlytics
-import io.fabric.sdk.android.Fabric
 import com.crashlytics.android.core.CrashlyticsCore
-import com.tochange.memento_maps.di.module.AppModule
 import com.tochange.memento_maps.di.component.AppComponent
 import com.tochange.memento_maps.di.component.DaggerAppComponent
-
+import com.tochange.memento_maps.di.module.AppModule
+import com.tochange.memento_maps.utils.timber.CrashReportTree
+import io.fabric.sdk.android.Fabric
+import timber.log.Timber
 
 class MementoApp : Application() {
 
@@ -34,10 +33,8 @@ class MementoApp : Application() {
     }
 
     companion object {
-
         var component: AppComponent? = null
             private set
     }
 
 }
-
