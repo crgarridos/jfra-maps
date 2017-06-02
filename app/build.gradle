@@ -12,9 +12,8 @@ def BUILD_TIME = 'BUILD_TIME'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion "25.0.3"
-
     defaultConfig {
-        applicationId "com.tochange.memento_maps"
+        applicationId "com.tochange.bonjia"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -92,7 +91,6 @@ dependencies {
     
     //picasso
     compile rootProject.ext.picasso
-    
 
     //test
     testCompile 'junit:junit:4.12'

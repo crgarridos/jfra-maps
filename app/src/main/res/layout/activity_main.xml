@@ -6,7 +6,7 @@
     android:id="@+id/rootView"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.tochange.memento_maps.main.MainActivity">
+    tools:context="com.tochange.bonjia.main.MainActivity">
 
     <Button
         android:text="@string/main_click_me"
