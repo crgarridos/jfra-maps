@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'io.fabric'
+apply from: '../common_dependencies.gradle'
 
 
 def STRING = 'String'
@@ -10,8 +11,8 @@ def BUILD_TIME = 'BUILD_TIME'
 
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion "25.0.3"
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
     defaultConfig {
         applicationId "com.tochange.bonjia"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -30,73 +31,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets{
-	main.java.srcDirs += 'src/main/kotlin'
-    }
     packagingOptions {
         exclude 'META-INF/rxjava.properties'
     }
 }
 
-
-repositories {
-    maven { url 'https://maven.fabric.io/public' }
-    mavenCentral()
-}
-
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
-    //supportLib
-    compile rootProject.ext.supportLib
-    compile rootProject.ext.supportLibAppCompat
-    compile rootProject.ext.supportLibDesign
-    compile rootProject.ext.supportLibRecyclerview
-    compile rootProject.ext.supportLibCardview
-
-    //Constraint layout
-    compile rootProject.ext.constraintLayout
-
-    //Play services
-    compile rootProject.ext.playServicesMaps
-
-    //timber
-    compile rootProject.ext.timber
-
-    //crashlytics
-    compile (rootProject.ext.crashlytics){
-        transitive = true;
-    }
-
-    //di
-    compile rootProject.ext.dagger
-    kapt rootProject.ext.daggerApt
-    //compile rootProject.ext.daggerSupport
-    //annotationProcessor rootProject.ext.daggerAnnotation
-
-    //rx
-    compile rootProject.ext.rxJava
-    compile rootProject.ext.rxAndroid
-    compile rootProject.ext.rxKotlin
-
-    
-    //net
-    compile rootProject.ext.retrofit
-    compile rootProject.ext.okHttp
-    compile rootProject.ext.gson
-    compile rootProject.ext.rxJavaAdapter
-    compile rootProject.ext.gsonConverter
-    
-
-    
     //picasso
     compile rootProject.ext.picasso
-
-    //test
-    testCompile 'junit:junit:4.12'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-        exclude group: 'com.google.code.findbugs'
-    })
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
