@@ -1,4 +1,4 @@
-package com.tochange.bonjia.pojo
+package com.tochange.bonjia.model
 
 /**
  * Created by cristian on 30/05/17

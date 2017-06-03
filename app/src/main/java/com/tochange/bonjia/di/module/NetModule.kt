@@ -13,8 +13,8 @@ import retrofit2.Retrofit
 import com.google.gson.Gson
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
-//import com.tochange.memento_maps.di.qualifier.Cached
-//import com.tochange.memento_maps.di.qualifier.NonCached
+//import com.tochange.bonjia.di.qualifier.Cached
+//import com.tochange.bonjia.di.qualifier.NonCached
 
 
 @Module

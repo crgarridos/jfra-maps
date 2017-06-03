@@ -1,6 +1,7 @@
 package com.tochange.bonjia.main
 
 import com.tochange.bonjia.base.BasePresenter
+import com.tochange.bonjia.model.User
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
