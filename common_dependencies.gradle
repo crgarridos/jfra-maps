@@ -41,10 +41,10 @@ dependencies {
     compile rootProject.ext.rxJavaAdapter
     compile rootProject.ext.gsonConverter
 
-//
-//
-//    //picasso
-//    compile rootProject.ext.picasso
+
+
+    //picasso
+    compile rootProject.ext.picasso
 
     //test
     testCompile 'junit:junit:4.12'
