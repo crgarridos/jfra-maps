@@ -14,5 +14,5 @@ open class BasePresenter<V: IBaseView>{
     }
 
 
-   open  fun onDestroy(){}
+   open fun onDestroy(){}
 }

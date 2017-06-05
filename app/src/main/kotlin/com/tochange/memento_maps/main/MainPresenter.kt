@@ -9,7 +9,6 @@ import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
-
 class MainPresenter : BasePresenter<IMainView>(){
 
     private var loadUsersSubscription: Disposable? = null
