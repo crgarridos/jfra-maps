@@ -8,7 +8,6 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
-
 class MainPresenter : BasePresenter<IMainView>(){
 
     private var loadUsersSubscription: Disposable? = null
