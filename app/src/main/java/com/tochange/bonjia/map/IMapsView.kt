@@ -6,5 +6,5 @@ import com.tochange.bonjia.entity.Publication
 
 interface IMapsView : IBaseView {
     fun showPublications(publications: List<Publication>)
-    fun showErrorRetrivingPublications(error: Throwable)
+    fun showErrorRetrievingPublications(error: Throwable)
 }

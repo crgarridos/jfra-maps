@@ -32,4 +32,6 @@ android {
 dependencies {
     compile project(":base")
     compile project(":model")
+
+    compile "org.jetbrains.anko:anko-commons:0.10.1"
 }
