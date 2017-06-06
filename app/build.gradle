@@ -30,5 +30,6 @@ android {
 }
 
 dependencies {
+    compile project(":base")
     compile project(":model")
 }

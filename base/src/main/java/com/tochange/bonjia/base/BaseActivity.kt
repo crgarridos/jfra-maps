@@ -2,7 +2,7 @@ package com.tochange.bonjia.base
 
 import android.support.v7.app.AppCompatActivity
 
-open class BaseActivity : AppCompatActivity(), IBaseView {
+open class BaseActivity : android.support.v7.app.AppCompatActivity(), IBaseView {
 //
 //    abstract var presenter : P
 //
