@@ -10,12 +10,12 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class AppModule(var app: BonjiaApp) {
+class AppModule(var app: com.tochange.bonjia.BonjiaApp) {
 
 
     @Provides
     @Singleton
-    fun provideApp(): BonjiaApp = app
+    fun provideApp(): com.tochange.bonjia.BonjiaApp = app
 
     @Provides
     @Singleton
@@ -27,5 +27,5 @@ class AppModule(var app: BonjiaApp) {
 
     @Provides
     @Singleton
-    fun provideBus(): RxBus = RxBus()
+    fun provideBus(): com.tochange.bonjia.utils.RxBus = com.tochange.bonjia.utils.RxBus()
 }

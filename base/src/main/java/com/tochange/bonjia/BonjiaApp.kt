@@ -3,6 +3,7 @@ package com.tochange.bonjia
 import android.app.Application
 import com.crashlytics.android.Crashlytics
 import com.crashlytics.android.core.CrashlyticsCore
+import com.tochange.bonjia.base.BuildConfig
 import com.tochange.bonjia.di.component.AppComponent
 import com.tochange.bonjia.di.component.DaggerAppComponent
 import com.tochange.bonjia.di.module.AppModule

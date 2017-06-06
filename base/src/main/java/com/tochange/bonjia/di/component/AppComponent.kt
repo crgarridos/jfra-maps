@@ -12,9 +12,9 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(AppModule::class, NetModule::class))
+@Component(modules = arrayOf(com.tochange.bonjia.di.module.AppModule::class, com.tochange.bonjia.di.module.NetModule::class))
 interface AppComponent {
-    fun app(): BonjiaApp
+    fun app(): com.tochange.bonjia.BonjiaApp
     fun context(): Context
     fun preferences(): SharedPreferences
 }
