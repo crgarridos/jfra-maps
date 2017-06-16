@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
       <module fileurl="file://$PROJECT_DIR$/bonjia.iml" filepath="$PROJECT_DIR$/bonjia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jfra-maps.iml" filepath="$PROJECT_DIR$/jfra-maps.iml" />
       <module fileurl="file://$PROJECT_DIR$/justkotlin/justkotlin.iml" filepath="$PROJECT_DIR$/justkotlin/justkotlin.iml" />
       <module fileurl="file://$PROJECT_DIR$/login/login.iml" filepath="$PROJECT_DIR$/login/login.iml" />
       <module fileurl="file://$PROJECT_DIR$/model/model.iml" filepath="$PROJECT_DIR$/model/model.iml" />

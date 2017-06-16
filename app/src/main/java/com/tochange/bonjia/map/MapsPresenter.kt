@@ -1,4 +1,4 @@
-package com.tochange.bonjia.maps
+package com.tochange.bonjia.map
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -18,10 +18,11 @@ class MapsPresenter : BasePresenter<IMapsView>(){
     private var loadPublicationsSubscription: Disposable? = null
 
     fun loadPublicationList() {
-        val juanfra  = Publication("Juan", Date(), "https://www.rdj4u.com/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/a/n/angra-dos-reis-_-ilha-grande-day-tour-rdj4u-5.jpg", -23.10, -44.24)
-        val cristian = Publication("Cristian", Date(), "https://www.rdj4u.com/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/a/n/angra-dos-reis-_-ilha-grande-day-tour-rdj4u-5.jpg", -22.10, -43.24)
+        val juanfra  = Publication("icon", "juanfra", Date(), "https://www.dropbox.com/s/rqa7p4v42cotc7z/photo1.jpg?dl=0", "Beach", -20.236728, -70.151803)
+        val cristian = Publication("icon","cristian", Date(), "https://www.rdj4u.com/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/a/n/angra-dos-reis-_-ilha-grande-day-tour-rdj4u-5.jpg", "Food", -20.236587, -70.152855)
+        val roni = Publication("icon","roni", Date(), "https://www.rdj4u.com/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/a/n/angra-dos-reis-_-ilha-grande-day-tour-rdj4u-5.jpg", "Food", -20.236487, -70.152455)
 
-        loadPublicationsSubscription = Observable.just(listOf(juanfra,cristian))
+        loadPublicationsSubscription = Observable.just(listOf(juanfra, cristian, roni))
             .delay(0, TimeUnit.SECONDS)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -30,7 +31,6 @@ class MapsPresenter : BasePresenter<IMapsView>(){
                 }, { error ->
                     view?.showErrorRetrievingPublications(error)
                 })
-
     }
 
     override fun onDestroy() {
