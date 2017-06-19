@@ -13,5 +13,8 @@ android {
 
 dependencies {
     compile project(':base')
+
+    compile rootProject.ext.firebaseAuth
+    compile rootProject.ext.rxFirebaseAuth
 }
 

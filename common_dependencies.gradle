@@ -1,7 +1,13 @@
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    //supportLib
+    //Kotlin STD
+    compile rootProject.ext.kotlinStd
+
+    //Anko
+    compile rootProject.ext.anko
+
+    //SupportLib
     compile rootProject.ext.supportLib
     compile rootProject.ext.supportLibAppCompat
     compile rootProject.ext.supportLibDesign
@@ -14,37 +20,37 @@ dependencies {
     //Play services
     compile rootProject.ext.playServicesMaps
 
-    //timber
+    //Timber
     compile rootProject.ext.timber
 
-    //crashlytics
+    //Crashlytics
     compile (rootProject.ext.crashlytics){
         transitive = true;
     }
 
-    //di
+    //DI
     compile rootProject.ext.dagger
     kapt rootProject.ext.daggerApt
     //compile rootProject.ext.daggerSupport
     //annotationProcessor rootProject.ext.daggerAnnotation
 
-    //rx
+    //Rx
     compile rootProject.ext.rxJava
     compile rootProject.ext.rxAndroid
     compile rootProject.ext.rxKotlin
 
 
-    //net
+    //Networking
     compile rootProject.ext.retrofit
     compile rootProject.ext.okHttp
     compile rootProject.ext.gson
     compile rootProject.ext.rxJavaAdapter
     compile rootProject.ext.gsonConverter
 
-
-
-    //picasso
+    //Picasso
     compile rootProject.ext.picasso
+
+    //Firebase
 
     //test
     testCompile 'junit:junit:4.12'
@@ -52,7 +58,4 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
         exclude group: 'com.google.code.findbugs'
     })
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-
-    //Firebase
 }

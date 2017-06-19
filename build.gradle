@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.1.2-3'
+    ext.kotlin_version = '1.1.2-5'
     repositories {
         maven { url 'https://maven.google.com' }
         maven { url 'https://maven.fabric.io/public' }
@@ -28,17 +28,18 @@ allprojects {
 }
 
 ext{
-
     buildToolsVersion = '25.0.3'
     compileSdkVersion = 25
     targetSdkVersion = 25
     minSdkVersion = 16
 
+    ankoVersion = '0.10.1'
     supportLibVersion = '25.3.1'
     playServicesVersion = '10.2.6'
     constraintLayoutVersion = '1.0.2'
     rxJavaVersion = '2.0.1'
     rxKotlinVersion = '2.0.3'
+    rxAndroidVersion = '2.0.1'
     timberVersion = '4.5.1'
     daggerVersion = '2.10'
     retrofitVersion = '2.2.0'
@@ -47,6 +48,14 @@ ext{
     picassoVersion = '2.5.2'
     crashlyticsVersion = '2.6.8'
     gsonVersion = '2.8.0'
+    firebaseVersion = "10.2.6"
+    rxFirebaseVersion = "10.2.6.0"
+
+    //kotlin
+    kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    //anko
+    anko = "org.jetbrains.anko:anko-commons:$ankoVersion"
 
     //supportLib
     supportLib = "com.android.support:support-v4:$supportLibVersion"
@@ -63,8 +72,8 @@ ext{
 
     //rx
     rxJava = "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
-    rxAndroid = "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
     rxKotlin = "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion"
+    rxAndroid = "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
 
     //timber
     timber = "com.jakewharton.timber:timber:$timberVersion"
@@ -90,6 +99,19 @@ ext{
 
     //picasso
     picasso = "com.squareup.picasso:picasso:$picassoVersion"
+
+    //Firebase
+    firebaseAuth = "com.google.firebase:firebase-auth:$firebaseVersion"
+    rxFirebaseAuth = "com.androidhuman.rxfirebase2:firebase-auth-kotlin:$rxFirebaseVersion"
+    firebaseCore = "com.google.firebase:firebase-auth:$firebaseVersion"
+    firebaseStorage = "com.google.firebase:firebase-auth:$firebaseVersion"
+    firebaseDatabase = "com.google.firebase:firebase-auth:$firebaseVersion"
+    firebaseCrash = "com.google.firebase:firebase-auth:$firebaseVersion"
+    firebaseMessaging = "com.google.firebase:firebase-auth:$firebaseVersion"
+    firebaseConfig = "com.google.firebase:firebase-auth:$firebaseVersion"
+    firebaseInvitesDynamicLinks = "com.google.firebase:firebase-auth:$firebaseVersion"
+    firebaseAds = "com.google.firebase:firebase-auth:$firebaseVersion"
+    firebaseAppIndexing = "com.google.firebase:firebase-auth:$firebaseVersion"
 
     buildTime = new Date().format("yyyy-MM-dd'T'HH:mm'Z'", TimeZone.getTimeZone("UTC"))
 }

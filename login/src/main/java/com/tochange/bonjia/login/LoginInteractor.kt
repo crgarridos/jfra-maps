@@ -5,5 +5,7 @@ package com.tochange.bonjia.login
  */
 interface LoginInteractor {
     fun logIn(username: String, password: String)
-    fun forgottenPassword()
+    fun logInWithSMS()
+    fun logInWithFacebook()
+    fun logInWithGoogle()
 }
