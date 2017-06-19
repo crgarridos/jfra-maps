@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "941006373120",
+    "firebase_url": "https://bonjia-353c7.firebaseio.com",
+    "project_id": "bonjia-353c7",
+    "storage_bucket": "bonjia-353c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:941006373120:android:7398999f2096ca89",
+        "android_client_info": {
+          "package_name": "com.tochange.bonjia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "941006373120-mljb723cbhk4mpgnalkdmcmn927f3dat.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tochange.bonjia",
+            "certificate_hash": "a52c37b038040e0d73b1f2102b54301d5c0aad03"
+          }
+        },
+        {
+          "client_id": "941006373120-p28g5h74jmnsrrbnn1c3eqeu7c9ae84v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9O0FgcsB_mkEh-Zs-pIWgglQy2dZrLfk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "941006373120-p28g5h74jmnsrrbnn1c3eqeu7c9ae84v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
