@@ -1,13 +1,17 @@
 package com.tochange.bonjia.login
 
 import com.tochange.bonjia.base.IBaseView
+import com.tochange.bonjia.login.impl.User
 
 /**
  * Created by cristiangarrido on 12/06/2017.
  */
 interface ILoginView : IBaseView {
-    fun showEmailInvalidError()
+    fun showSuccessfullyLoggedMessage(user: User)
+    fun showUserAlReadyExistsError(error: Throwable?)
+    fun showUserDoesNotExistError(error: Throwable?)
     fun showEmailOrPasswordInvalidError()
-    fun showSuccessfullLoggedMessage()
+    fun showUnknownError()
     fun showPasswordSentMessage()
+    fun onUserSignedUp(user: User)
 }

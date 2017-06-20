@@ -1,11 +1,15 @@
 package com.tochange.bonjia.login
 
+import com.tochange.bonjia.login.impl.User
+import io.reactivex.Single
+
 /**
  * Created by cristiangarrido on 12/06/2017.
  */
 interface LoginInteractor {
-    fun logIn(username: String, password: String)
-    fun logInWithSMS()
-    fun logInWithFacebook()
-    fun logInWithGoogle()
+    fun signUp(username: String, password: String): Single<User>
+    fun logIn(username: String, password: String): Single<User>
+    fun logInWithSMS(): Single<User>
+    fun logInWithFacebook(): Single<User>
+    fun logInWithGoogle(): Single<User>
 }

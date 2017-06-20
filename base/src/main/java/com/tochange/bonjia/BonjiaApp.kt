@@ -31,6 +31,7 @@ class BonjiaApp : Application() {
         } else {
             Timber.plant(CrashReportTree())
         }
+//        FirebaseApp.initializeApp(this)
     }
 
     companion object {

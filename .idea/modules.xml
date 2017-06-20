@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/base/base.iml" filepath="$PROJECT_DIR$/base/base.iml" />
+      <module fileurl="file:///mnt/A610BC9110BC6A47/projects/github/jfra-maps/app/app.iml" filepath="/mnt/A610BC9110BC6A47/projects/github/jfra-maps/app/app.iml" />
+      <module fileurl="file:///mnt/A610BC9110BC6A47/projects/github/jfra-maps/base/base.iml" filepath="/mnt/A610BC9110BC6A47/projects/github/jfra-maps/base/base.iml" />
       <module fileurl="file://$PROJECT_DIR$/bonjia.iml" filepath="$PROJECT_DIR$/bonjia.iml" />
-      <module fileurl="file://$PROJECT_DIR$/justkotlin/justkotlin.iml" filepath="$PROJECT_DIR$/justkotlin/justkotlin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/login/login.iml" filepath="$PROJECT_DIR$/login/login.iml" />
-      <module fileurl="file://$PROJECT_DIR$/model/model.iml" filepath="$PROJECT_DIR$/model/model.iml" />
+      <module fileurl="file:///mnt/A610BC9110BC6A47/projects/github/jfra-maps/jfra-maps.iml" filepath="/mnt/A610BC9110BC6A47/projects/github/jfra-maps/jfra-maps.iml" />
+      <module fileurl="file:///mnt/A610BC9110BC6A47/projects/github/jfra-maps/justkotlin/justkotlin.iml" filepath="/mnt/A610BC9110BC6A47/projects/github/jfra-maps/justkotlin/justkotlin.iml" />
+      <module fileurl="file:///mnt/A610BC9110BC6A47/projects/github/jfra-maps/login/login.iml" filepath="/mnt/A610BC9110BC6A47/projects/github/jfra-maps/login/login.iml" />
+      <module fileurl="file:///mnt/A610BC9110BC6A47/projects/github/jfra-maps/model/model.iml" filepath="/mnt/A610BC9110BC6A47/projects/github/jfra-maps/model/model.iml" />
     </modules>
   </component>
 </project>

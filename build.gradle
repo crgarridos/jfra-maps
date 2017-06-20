@@ -103,8 +103,8 @@ ext{
     //Firebase
     firebaseAuth = "com.google.firebase:firebase-auth:$firebaseVersion"
     rxFirebaseAuth = "com.androidhuman.rxfirebase2:firebase-auth-kotlin:$rxFirebaseVersion"
-    firebaseCore = "com.google.firebase:firebase-auth:$firebaseVersion"
-    firebaseStorage = "com.google.firebase:firebase-auth:$firebaseVersion"
+    firebaseCore = "com.google.firebase:firebase-core:$firebaseVersion"
+    firebaseStorage = "com.google.firebase:firebase-core:$firebaseVersion"
     firebaseDatabase = "com.google.firebase:firebase-auth:$firebaseVersion"
     firebaseCrash = "com.google.firebase:firebase-auth:$firebaseVersion"
     firebaseMessaging = "com.google.firebase:firebase-auth:$firebaseVersion"

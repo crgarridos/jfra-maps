@@ -2,6 +2,8 @@ apply plugin: 'com.android.library'
 apply from: '../common_android_defaults.gradle'
 apply from: '../common_dependencies.gradle'
 
+
+
 android {
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion rootProject.buildToolsVersion
@@ -13,6 +15,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        def firebaseAppKey = "AIzaSyC9O0FgcsB_mkEh-Zs-pIWgglQy2dZrLfk"
+        buildConfigField("String", "FIREBASE_APP_KEY", "\"${firebaseAppKey}\"")
 
     }
     buildTypes {

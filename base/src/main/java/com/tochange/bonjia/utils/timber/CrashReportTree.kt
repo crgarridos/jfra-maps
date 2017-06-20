@@ -5,7 +5,7 @@ import com.crashlytics.android.Crashlytics
 import timber.log.Timber
 
 
-class CrashReportTree : Timber.Tree() {
+class CrashReportTree : Timber.DebugTree() {
 
     private val CRASHLYTICS_KEY_PRIORITY = "priority"
     private val CRASHLYTICS_KEY_TAG = "tag"
