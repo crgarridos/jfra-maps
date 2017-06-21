@@ -51,6 +51,14 @@ ext{
     firebaseVersion = "10.2.6"
     rxFirebaseVersion = "10.2.6.0"
 
+    junitVersion = '4.12'
+    mockitoVersion = '1.10.19'
+    powerMock = '1.7.0'
+    hamcrestVersion = '1.3'
+    runnerVersion = '0.5'
+    rulesVersion = '0.5'
+    espressoVersion = '2.2.2'
+
     //kotlin
     kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
@@ -112,6 +120,14 @@ ext{
     firebaseInvitesDynamicLinks = "com.google.firebase:firebase-auth:$firebaseVersion"
     firebaseAds = "com.google.firebase:firebase-auth:$firebaseVersion"
     firebaseAppIndexing = "com.google.firebase:firebase-auth:$firebaseVersion"
+
+    //Tests
+
+    jUnit =  "junit:junit:$junitVersion"
+    mockito = "org.mockito:mockito-all:$mockitoVersion"
+    hamcrest = "org.hamcrest:hamcrest-all:$hamcrestVersion"
+    powerMockJUnit = "org.powermock:powermock-module-junit4:$powerMock"
+    powerMockMockito = "org.powermock:powermock-api-mockito:$powerMock"
 
     buildTime = new Date().format("yyyy-MM-dd'T'HH:mm'Z'", TimeZone.getTimeZone("UTC"))
 }

@@ -1,21 +1,23 @@
 package com.tochange.bonjia.login.impl
 
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.tochange.bonjia.login.ILoginView
+import com.tochange.bonjia.login.LoginInteractor
 import com.tochange.bonjia.login.LoginPresenter
 import io.reactivex.disposables.Disposable
 import timber.log.Timber
 
 /**
- * Created by cristiangarrido on 12/06/2017.
+ * Created by cristiangarrido on 12/06/2017
  */
-class LoginPresenterImpl : LoginPresenter() {
+class LoginPresenterImpl(private val loginInteractor: LoginInteractor) : LoginPresenter() {
 
-    val loginInteractor by lazy { LoginInteractorImpl() }
+//    private val loginInteractor by lazy { LoginInteractorImpl() }
 
-    private var signUpSubsciption: Disposable? = null
+    private var signUpSubscription: Disposable? = null
 
-    fun signUp(email: String, password: String) {
-        signUpSubsciption = loginInteractor.signUp(email, password)
+    override fun signUp(email: String, password: String) {
+        signUpSubscription = loginInteractor.signUp(email, password)
                 .subscribe({ user ->
                     view?.onUserSignedUp(user)
                 }, { error ->
@@ -29,8 +31,16 @@ class LoginPresenterImpl : LoginPresenter() {
                 })
     }
 
+    override fun logIn(email: String, password: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onDetachView(view: ILoginView?) {
+        super.onDetachView(view)
+        signUpSubscription?.dispose()
+    }
+
     override fun onDestroy() {
-        signUpSubsciption?.dispose()
         super.onDestroy()
     }
 }

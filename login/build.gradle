@@ -19,6 +19,14 @@ dependencies {
     compile rootProject.ext.firebaseCore
     compile rootProject.ext.firebaseAuth
     compile rootProject.ext.rxFirebaseAuth
+
+    testCompile rootProject.ext.jUnit
+    testCompile rootProject.ext.mockito
+    testCompile rootProject.ext.hamcrest
+    testCompile rootProject.ext.powerMockJUnit
+    testCompile rootProject.ext.powerMockMockito
+
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile project(path: ':model')
 }
 

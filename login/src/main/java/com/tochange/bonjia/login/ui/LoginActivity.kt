@@ -12,8 +12,9 @@ import com.tochange.bonjia.extensions.validLength
 import com.tochange.bonjia.extensions.validPattern
 import com.tochange.bonjia.login.ILoginView
 import com.tochange.bonjia.login.R
+import com.tochange.bonjia.login.impl.LoginInteractorImpl
 import com.tochange.bonjia.login.impl.LoginPresenterImpl
-import com.tochange.bonjia.login.impl.User
+import com.tochange.bonjia.model.User
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.toast
@@ -55,7 +56,7 @@ class LoginActivity : BaseActivity(), ILoginView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val presenter = LoginPresenterImpl()
+        val presenter = LoginPresenterImpl(LoginInteractorImpl())
         presenter.bind(this)
 
         vLoginSubmit.setOnClickListener {

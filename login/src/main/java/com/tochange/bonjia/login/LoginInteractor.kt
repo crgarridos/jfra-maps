@@ -1,6 +1,6 @@
 package com.tochange.bonjia.login
 
-import com.tochange.bonjia.login.impl.User
+import com.tochange.bonjia.model.User
 import io.reactivex.Single
 
 /**

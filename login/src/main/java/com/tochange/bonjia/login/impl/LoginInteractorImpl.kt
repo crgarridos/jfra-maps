@@ -4,6 +4,8 @@ import com.androidhuman.rxfirebase2.auth.RxFirebaseAuth
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.tochange.bonjia.login.LoginInteractor
+import com.tochange.bonjia.login.UserRepository
+import com.tochange.bonjia.model.User
 import io.reactivex.Single
 
 /**
@@ -34,27 +36,3 @@ class LoginInteractorImpl : LoginInteractor {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
-
-object UserRepository {
-
-    private val mAuth by lazy { }
-
-    fun createUser(email: String, password: String): Single<User> {
-        return RxFirebaseAuth.createUserWithEmailAndPassword( FirebaseAuth.getInstance(), email, password)
-                .map { it.parseUser() }
-    }
-    fun getUser(email: String, password: String): Single<User> {
-        return RxFirebaseAuth.signInWithEmailAndPassword( FirebaseAuth.getInstance(), email, password)
-                .map { it.parseUser() }
-    }
-
-    private fun FirebaseUser.parseUser() : User{
-        return User(uid, displayName ?: "", email?: "", photoUrl?.toString())
-    }
-
-}
-
-data class User(val id: String,
-                val username: String,
-                val email: String,
-                val profilePicture: String?)

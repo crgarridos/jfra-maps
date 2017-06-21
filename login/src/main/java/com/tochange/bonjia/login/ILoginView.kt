@@ -1,7 +1,7 @@
 package com.tochange.bonjia.login
 
 import com.tochange.bonjia.base.IBaseView
-import com.tochange.bonjia.login.impl.User
+import com.tochange.bonjia.model.User
 
 /**
  * Created by cristiangarrido on 12/06/2017.
