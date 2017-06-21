@@ -11,7 +11,7 @@ import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
 
 /**
- * Created by cristian on 21/06/17.
+ * Created by cristian on 21/06/17
  */
 class LoginPresenterTest() {
 
