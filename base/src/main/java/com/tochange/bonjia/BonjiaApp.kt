@@ -13,6 +13,11 @@ import timber.log.Timber
 
 class BonjiaApp : Application() {
 
+    companion object {
+        lateinit var component: AppComponent
+            private set
+    }
+
     override fun onCreate() {
         super.onCreate()
 
@@ -32,11 +37,6 @@ class BonjiaApp : Application() {
             Timber.plant(CrashReportTree())
         }
 //        FirebaseApp.initializeApp(this)
-    }
-
-    companion object {
-        var component: AppComponent? = null
-            private set
     }
 
 }
