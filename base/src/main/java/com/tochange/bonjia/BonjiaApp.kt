@@ -31,7 +31,7 @@ class BonjiaApp : Application() {
 
         Fabric.with(this, Crashlytics.Builder().core(core).build())
 
-        if (BuildConfig.DEBUG) {
+        if (BuildConfig.TIMBER_IN_RELEASE) {
             Timber.plant(Timber.DebugTree())
         } else {
             Timber.plant(CrashReportTree())

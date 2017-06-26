@@ -17,6 +17,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         def firebaseAppKey = "AIzaSyC9O0FgcsB_mkEh-Zs-pIWgglQy2dZrLfk"
         buildConfigField("String", "FIREBASE_APP_KEY", "\"${firebaseAppKey}\"")
+        buildConfigField("Boolean", "TIMBER_IN_RELEASE", "true")
 
     }
     buildTypes {
