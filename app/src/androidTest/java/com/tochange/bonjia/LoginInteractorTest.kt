@@ -1,11 +1,8 @@
-package com.tochange.bonjia.login.impl
+package com.tochange.bonjia.login.model.impl
 
-import org.junit.After
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * Created by cristian on 19/06/17.

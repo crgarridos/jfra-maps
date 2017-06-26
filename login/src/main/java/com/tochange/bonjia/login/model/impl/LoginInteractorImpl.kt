@@ -1,10 +1,7 @@
-package com.tochange.bonjia.login.impl
+package com.tochange.bonjia.login.model.impl
 
-import com.androidhuman.rxfirebase2.auth.RxFirebaseAuth
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.tochange.bonjia.login.LoginInteractor
-import com.tochange.bonjia.login.UserRepository
+import com.tochange.bonjia.login.model.LoginInteractor
+import com.tochange.bonjia.login.repository.UserRepository
 import com.tochange.bonjia.model.User
 import io.reactivex.Single
 
@@ -13,10 +10,8 @@ import io.reactivex.Single
  */
 class LoginInteractorImpl : LoginInteractor {
 
-
     override fun signUp(username: String, password: String) : Single<User>{
         return UserRepository.createUser(username, password)
-
     }
 
     override fun logIn(username: String, password: String) : Single<User>{

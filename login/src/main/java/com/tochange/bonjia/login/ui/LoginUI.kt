@@ -1,4 +1,4 @@
-package com.tochange.bonjia.login
+package com.tochange.bonjia.login.ui
 
 import com.tochange.bonjia.base.IBaseView
 import com.tochange.bonjia.model.User

@@ -1,16 +1,14 @@
 package com.tochange.bonjia.login.ui
 
 import android.os.Bundle
-
 import com.tochange.bonjia.base.BaseActivity
 import com.tochange.bonjia.extensions.longToast
 import com.tochange.bonjia.extensions.validEmail
 import com.tochange.bonjia.extensions.validLength
 import com.tochange.bonjia.login.LoginPresenter
-import com.tochange.bonjia.login.LoginUI
 import com.tochange.bonjia.login.R
-import com.tochange.bonjia.login.impl.LoginInteractorImpl
-import com.tochange.bonjia.login.impl.LoginPresenterImpl
+import com.tochange.bonjia.login.model.impl.LoginInteractorImpl
+import com.tochange.bonjia.login.model.impl.LoginPresenterImpl
 import com.tochange.bonjia.model.User
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.toast
@@ -18,6 +16,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 class LoginActivity : BaseActivity(), LoginUI {
+
 
     override fun showSuccessfullyLoggedMessage(user: User) {
         Timber.d(user.toString())
@@ -60,23 +59,23 @@ class LoginActivity : BaseActivity(), LoginUI {
 
         vLoginSubmit.setOnClickListener {
             val login = vLoginEmail.text ?: return@setOnClickListener
-            if (!vLoginEmail.validEmail("Not valid email")) {
+            if (!vLoginEmail.validEmail(R.string.invalid_email_address)) {
                 return@setOnClickListener
             }
-            if (!vLoginPassword.validLength("Password too short ", min = 6, max = 9))
+            if (!vLoginPassword.validLength(R.string.password_to_short, min = 6))
                 return@setOnClickListener
 
             val pass = vLoginPassword.text ?: return@setOnClickListener
-            presenter?.signUp(login.toString(), pass.toString())
+            presenter.signUp(login.toString(), pass.toString())
         }
     }
         override fun onStart() {
         super.onStart()
-        presenter?.bind(this)
+        presenter.bind(this)
     }
 
     override fun onStop() {
-        presenter?.unbind()
+        presenter.unbind()
         super.onStop()
     }
 }

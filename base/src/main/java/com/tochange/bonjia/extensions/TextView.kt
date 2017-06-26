@@ -36,3 +36,8 @@ fun TextView.validEmail(@StringRes errorResId: Int) : Boolean {
 fun TextView.validLength(error: String, min: Int, max: Int = 150): Boolean {
     return validPattern(Pattern.compile("^.{$min,$max}$"), error)
 }
+
+
+fun TextView.validLength(@StringRes errorResId: Int, min: Int, max: Int = 150): Boolean {
+    return validLength(context.getString(errorResId), min, max)
+}

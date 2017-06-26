@@ -32,7 +32,7 @@ dependencies {
     compile rootProject.ext.dagger
     kapt rootProject.ext.daggerApt
     //compile rootProject.ext.daggerSupport
-    //annotationProcessor rootProject.ext.daggerAnnotation
+    annotationProcessor rootProject.ext.daggerAnnotation
 
     //Rx
     compile rootProject.ext.rxJava

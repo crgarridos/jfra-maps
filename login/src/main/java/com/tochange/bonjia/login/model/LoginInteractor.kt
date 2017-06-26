@@ -1,4 +1,4 @@
-package com.tochange.bonjia.login
+package com.tochange.bonjia.login.model
 
 import com.tochange.bonjia.model.User
 import io.reactivex.Single

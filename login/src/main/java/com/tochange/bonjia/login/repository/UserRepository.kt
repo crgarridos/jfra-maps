@@ -1,7 +1,10 @@
-package com.tochange.bonjia.login
+package com.tochange.bonjia.login.repository
 
 import com.androidhuman.rxfirebase2.auth.RxFirebaseAuth
 import com.google.firebase.auth.*
+import com.tochange.bonjia.login.model.UserAlreadyExistsException
+import com.tochange.bonjia.login.model.UserInvalidCredentialsException
+import com.tochange.bonjia.login.model.UserUnknownException
 import com.tochange.bonjia.model.User
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers

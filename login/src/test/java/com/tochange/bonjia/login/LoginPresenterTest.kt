@@ -1,14 +1,18 @@
 package com.tochange.bonjia.login
 
 import com.nhaarman.mockito_kotlin.mock
-import com.tochange.bonjia.login.impl.LoginPresenterImpl
+import com.tochange.bonjia.login.model.impl.LoginPresenterImpl
+import com.tochange.bonjia.login.model.LoginInteractor
+import com.tochange.bonjia.login.model.UserAlreadyExistsException
+import com.tochange.bonjia.login.model.UserDoesNotExistException
+import com.tochange.bonjia.login.model.UserInvalidCredentialsException
+import com.tochange.bonjia.login.ui.LoginUI
 import com.tochange.bonjia.model.User
 import io.reactivex.Single
 import org.amshove.kluent.When
 import org.amshove.kluent.calling
 import org.amshove.kluent.itReturns
 import org.junit.After
-import org.junit.Assert.fail
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.verify
@@ -75,10 +79,37 @@ class LoginPresenterTest() {
         verify(loginUI).showUserAlReadyExistsError(userAlreadyExistsException)
     }
 
-//    @Test
-//    fun logIn() {
-//        fail("Not implemented yet !")
-//    }
+    @Test
+    fun logIn_ValidCredentials() {
+        When calling loginInteractor.logIn(email, password) itReturns Single.create {
+            it.onSuccess(sampleUser)
+        }
+        presenter.logIn(email, password)
+        verify(loginInteractor).logIn(email, password)
+        verify(loginUI).showSuccessfullyLoggedMessage(sampleUser)
+    }
+
+    @Test
+    fun logIn_NotValidCredentials() {
+        val invalidCredentialsException = UserInvalidCredentialsException()
+        When calling loginInteractor.logIn(email, password) itReturns Single.create {
+            it.onError(invalidCredentialsException)
+        }
+        presenter.logIn(email, password)
+        verify(loginInteractor).logIn(email, password)
+        verify(loginUI).showEmailOrPasswordInvalidError(invalidCredentialsException)
+    }
+
+    @Test
+    fun logIn_NotExistingUser() {
+        val doesNotExistException = UserDoesNotExistException()
+        When calling loginInteractor.logIn(email, password) itReturns Single.create {
+            it.onError(doesNotExistException)
+        }
+        presenter.logIn(email, password)
+        verify(loginInteractor).logIn(email, password)
+        verify(loginUI).showUserDoesNotExistError(doesNotExistException)
+    }
 
     @After
     fun tearDown() {
