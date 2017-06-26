@@ -56,7 +56,7 @@ class LoginActivity : BaseActivity(), LoginUI {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-//        presenter = LoginPresenterImpl(LoginInteractorImpl())
+        presenter = LoginPresenterImpl(LoginInteractorImpl())
 
         vLoginSubmit.setOnClickListener {
             val login = vLoginEmail.text ?: return@setOnClickListener
