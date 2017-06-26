@@ -12,7 +12,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'io.fabric.tools:gradle:1.22.1'
         classpath 'com.google.gms:google-services:3.1.0'
-        
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -27,7 +27,7 @@ allprojects {
     }
 }
 
-ext{
+ext {
     buildToolsVersion = '25.0.3'
     compileSdkVersion = 25
     targetSdkVersion = 25
@@ -37,7 +37,7 @@ ext{
     supportLibVersion = '25.3.1'
     playServicesVersion = '10.2.6'
     constraintLayoutVersion = '1.0.2'
-    rxJavaVersion = '2.0.1'
+    rxJavaVersion = '2.1.1'
     rxKotlinVersion = '2.0.3'
     rxAndroidVersion = '2.0.1'
     timberVersion = '4.5.1'
@@ -58,6 +58,10 @@ ext{
     runnerVersion = '0.5'
     rulesVersion = '0.5'
     espressoVersion = '2.2.2'
+    jUnitKotlinVersion = '1.0.6'
+    mockitoKotlinVersion = '1.1.0'
+    kluentVersion = '1.14'
+
 
     //kotlin
     kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
@@ -91,8 +95,10 @@ ext{
 
     //dagger
     dagger = "com.google.dagger:dagger-android:$daggerVersion"
-    daggerSupport = "com.google.dagger:dagger-android-support:$daggerVersion" // if you use the support libraries
-    daggerAnnotation = "com.google.dagger:dagger-android-processor:$daggerVersion" //for annotationProcessor
+    daggerSupport = "com.google.dagger:dagger-android-support:$daggerVersion"
+    // if you use the support libraries
+    daggerAnnotation = "com.google.dagger:dagger-android-processor:$daggerVersion"
+    //for annotationProcessor
     daggerApt = "com.google.dagger:dagger-compiler:$daggerVersion"
 
     //net
@@ -123,12 +129,17 @@ ext{
 
     //Tests
 
-    jUnit =  "junit:junit:$junitVersion"
+    jUnit = "junit:junit:$junitVersion"
     mockito = "org.mockito:mockito-core:$mockitoVersion"
 //    mockito = "org.mockito:mockito-all:$mockitoVersion"
     hamcrest = "org.hamcrest:hamcrest-all:$hamcrestVersion"
     powerMockJUnit = "org.powermock:powermock-module-junit4:$powerMock"
     powerMockMockito = "org.powermock:powermock-api-mockito:$powerMock"
+
+    //Test kotlin
+    jUnitKotlin = "org.jetbrains.kotlin:kotlin-test-junit:$jUnitKotlinVersion"
+    mockitoKotlin = "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
+    kluent = "org.amshove.kluent:kluent:$kluentVersion"
 
     buildTime = new Date().format("yyyy-MM-dd'T'HH:mm'Z'", TimeZone.getTimeZone("UTC"))
 }

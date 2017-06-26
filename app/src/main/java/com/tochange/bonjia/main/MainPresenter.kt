@@ -13,9 +13,9 @@ class MainPresenter : BasePresenter<IMainView>(){
     private var loadUsersSubscription: Disposable? = null
 
     fun loadUserList() {
-        val juan = User("Juanchito", "CL", listOf("https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"))
-        val pepe = User("Pepiton", "PE")
-        val cholo = User("Cholomon", "BO")
+        val juan = User("1", "Juanchito", "juancho@example.com", null, "CL", listOf("https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"))
+        val pepe = User("2", "Pepito", "pepito@example.com", null, "PE")
+        val cholo = User("3", "Cholomon", "cholo@example.com", null, "BO")
 
         val juanPeruano = juan.copy(country = "PE")
         loadUsersSubscription = Observable.just(listOf(juan))//, listOf(pepe, cholo))

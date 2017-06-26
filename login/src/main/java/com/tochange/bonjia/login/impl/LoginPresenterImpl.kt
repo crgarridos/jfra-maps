@@ -1,9 +1,7 @@
 package com.tochange.bonjia.login.impl
 
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.tochange.bonjia.login.*
 import io.reactivex.disposables.Disposable
-import timber.log.Timber
 
 /**
  * Created by cristiangarrido on 12/06/2017
@@ -20,15 +18,10 @@ class LoginPresenterImpl(private val loginInteractor: LoginInteractor) : LoginPr
                     view?.showSuccessfullyLoggedMessage(user)
                 }, { error ->
                     when (error) {
-                        is FirebaseAuthUserCollisionException,
-                        is UserAlreadyExistsException ->
-                            view?.showUserAlReadyExistsError(error)
-                        is UserInvalidCredentialsException ->
-                            view?.showEmailOrPasswordInvalidError(error)
-                        else ->
-                            view?.showUnknownError(error)
+                        is UserAlreadyExistsException -> view?.showUserAlReadyExistsError(error)
+                        is UserInvalidCredentialsException -> view?.showEmailOrPasswordInvalidError(error)
+                        else -> view?.showUnknownError(error)
                     }
-                    Timber.d(error)
                 })
     }
 
