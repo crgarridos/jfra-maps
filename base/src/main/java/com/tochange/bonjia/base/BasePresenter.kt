@@ -15,6 +15,6 @@ open class BasePresenter<V : IBaseView> {
     }
 
     open protected fun onAttachView(view :V) {}
-    open protected fun onDetachView(view :V?) {}
+    open protected fun onDetachView(UI:V?) {}
     open fun onDestroy() {}
 }

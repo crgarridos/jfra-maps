@@ -1,9 +1,7 @@
 package com.tochange.bonjia.login.impl
 
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.tochange.bonjia.login.ILoginView
-import com.tochange.bonjia.login.LoginInteractor
-import com.tochange.bonjia.login.LoginPresenter
+import com.tochange.bonjia.login.*
 import io.reactivex.disposables.Disposable
 import timber.log.Timber
 
@@ -19,13 +17,16 @@ class LoginPresenterImpl(private val loginInteractor: LoginInteractor) : LoginPr
     override fun signUp(email: String, password: String) {
         signUpSubscription = loginInteractor.signUp(email, password)
                 .subscribe({ user ->
-                    view?.onUserSignedUp(user)
+                    view?.showSuccessfullyLoggedMessage(user)
                 }, { error ->
                     when (error) {
-                        is FirebaseAuthUserCollisionException ->
+                        is FirebaseAuthUserCollisionException,
+                        is UserAlreadyExistsException ->
                             view?.showUserAlReadyExistsError(error)
+                        is UserInvalidCredentialsException ->
+                            view?.showEmailOrPasswordInvalidError(error)
                         else ->
-                            view?.showUnknownError()
+                            view?.showUnknownError(error)
                     }
                     Timber.d(error)
                 })
@@ -35,8 +36,8 @@ class LoginPresenterImpl(private val loginInteractor: LoginInteractor) : LoginPr
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun onDetachView(view: ILoginView?) {
-        super.onDetachView(view)
+    override fun onDetachView(UI: LoginUI?) {
+        super.onDetachView(UI)
         signUpSubscription?.dispose()
     }
 

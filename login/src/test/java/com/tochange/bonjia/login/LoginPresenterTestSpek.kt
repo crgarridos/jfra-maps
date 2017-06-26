@@ -7,26 +7,25 @@ import io.reactivex.Single
 import org.amshove.kluent.When
 import org.amshove.kluent.calling
 import org.amshove.kluent.itReturns
-import org.junit.After
-import org.junit.Assert.fail
-import org.junit.Before
-import org.junit.Test
+import org.jetbrains.spek.api.Spek
+import org.jetbrains.spek.api.dsl.it
+import org.jetbrains.spek.api.dsl.on
 import org.mockito.Mockito.verify
 
 /**
  * Created by cristian on 21/06/17
  */
-class LoginPresenterTest() {
+class LoginPresenterTestSpek : Spek({
 
-    lateinit var presenter: LoginPresenter
-    lateinit var loginInteractor: LoginInteractor
-    lateinit var loginUI: LoginUI
+    var loginInteractor: LoginInteractor= mock<LoginInteractor>()
+    var loginUI: LoginUI  = mock<LoginUI>()
+    var presenter: LoginPresenter= LoginPresenterImpl(loginInteractor)
 
 
     val email = "cristian@ylly.fr"
     val password = "myPreciousPassword"
 
-    private val sampleUser = User(
+    val sampleUser = User(
             id = "ramdomUUID",
             username = email,
             email = email,
@@ -34,17 +33,12 @@ class LoginPresenterTest() {
             country = null
     )
 
-    @Before
-    fun setUp() {
-        loginInteractor= mock<LoginInteractor>()
-        loginUI = mock<LoginUI>()
-
+    beforeEachTest {
         presenter = LoginPresenterImpl(loginInteractor)
         presenter.bind(loginUI)
     }
 
-    @Test
-    fun signUp_ValidCredentials() {
+    it("signUp_ValidCredentials") {
         When calling loginInteractor.signUp(email, password) itReturns Single.create {
             it.onSuccess(sampleUser)
         }
@@ -53,8 +47,7 @@ class LoginPresenterTest() {
         verify(loginUI).showSuccessfullyLoggedMessage(sampleUser)
     }
 
-    @Test
-    fun signUp_InvalidCredentials() {
+    on("signUp_InvalidCredentials") {
         val invalidCredentialsException = UserInvalidCredentialsException()
         When calling loginInteractor.signUp(email, password) itReturns Single.create {
             it.onError(invalidCredentialsException)
@@ -64,8 +57,7 @@ class LoginPresenterTest() {
         verify(loginUI).showEmailOrPasswordInvalidError(invalidCredentialsException)
     }
 
-    @Test
-    fun signUp_ExistingUser() {
+    on("signUp_ExistingUser") {
         val userAlreadyExistsException = UserAlreadyExistsException()
         When calling loginInteractor.signUp(email, password) itReturns Single.create {
             it.onError(userAlreadyExistsException)
@@ -80,9 +72,8 @@ class LoginPresenterTest() {
 //        fail("Not implemented yet !")
 //    }
 
-    @After
-    fun tearDown() {
+    afterEachTest {
         presenter.unbind()
         presenter.onDestroy()
     }
-}
+})

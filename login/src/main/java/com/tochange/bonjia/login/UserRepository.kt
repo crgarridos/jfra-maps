@@ -2,6 +2,7 @@ package com.tochange.bonjia.login
 
 import com.androidhuman.rxfirebase2.auth.RxFirebaseAuth
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseUser
 import com.tochange.bonjia.model.User
 import io.reactivex.Single
@@ -16,6 +17,12 @@ object UserRepository {
     fun createUser(email: String, password: String): Single<User> {
         return RxFirebaseAuth.createUserWithEmailAndPassword(mAuth, email, password)
                 .map { it.parseUser() }
+                .doOnError { error ->
+                    throw when(error){
+                        is FirebaseAuthUserCollisionException ->  UserAlreadyExistsException()
+                        else -> UserUnknownException(error)
+                    }
+                }
     }
     fun getUser(email: String, password: String): Single<User> {
         return RxFirebaseAuth.signInWithEmailAndPassword(mAuth, email, password)

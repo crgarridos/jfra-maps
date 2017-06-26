@@ -6,12 +6,11 @@ import com.tochange.bonjia.model.User
 /**
  * Created by cristiangarrido on 12/06/2017.
  */
-interface ILoginView : IBaseView {
+interface LoginUI : IBaseView {
     fun showSuccessfullyLoggedMessage(user: User)
     fun showUserAlReadyExistsError(error: Throwable?)
     fun showUserDoesNotExistError(error: Throwable?)
-    fun showEmailOrPasswordInvalidError()
-    fun showUnknownError()
-    fun showPasswordSentMessage()
-    fun onUserSignedUp(user: User)
+    fun showEmailOrPasswordInvalidError(error: Throwable?)
+    fun showUnknownError(error: Throwable?)
+    fun showPasswordSentMessage(email: String)
 }

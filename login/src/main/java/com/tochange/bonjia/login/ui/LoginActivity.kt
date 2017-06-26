@@ -1,30 +1,26 @@
 package com.tochange.bonjia.login.ui
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.util.PatternsCompat
-import android.widget.TextView
 
 import com.tochange.bonjia.base.BaseActivity
 import com.tochange.bonjia.extensions.longToast
 import com.tochange.bonjia.extensions.validEmail
 import com.tochange.bonjia.extensions.validLength
-import com.tochange.bonjia.extensions.validPattern
-import com.tochange.bonjia.login.ILoginView
+import com.tochange.bonjia.login.LoginUI
 import com.tochange.bonjia.login.R
 import com.tochange.bonjia.login.impl.LoginInteractorImpl
 import com.tochange.bonjia.login.impl.LoginPresenterImpl
 import com.tochange.bonjia.model.User
 import kotlinx.android.synthetic.main.activity_login.*
-import org.jetbrains.anko.longToast
 import org.jetbrains.anko.toast
 import timber.log.Timber
-import java.util.regex.Pattern
 
-class LoginActivity : BaseActivity(), ILoginView {
+class LoginActivity : BaseActivity(), LoginUI {
 
     override fun showSuccessfullyLoggedMessage(user: User) {
-        toast("showSuccessfullyLoggedMessage")
+        Timber.tag("toto")
+        Timber.d(user.toString())
+        longToast(user.toString())
     }
 
     override fun showUserAlReadyExistsError(error: Throwable?) {
@@ -35,21 +31,15 @@ class LoginActivity : BaseActivity(), ILoginView {
         toast("showUserDoesNotExistError" + error)
     }
 
-    override fun showEmailOrPasswordInvalidError() {
+    override fun showEmailOrPasswordInvalidError(error: Throwable?) {
         toast("showUserAlReadyExistsError" )
     }
-    override fun showUnknownError() {
+    override fun showUnknownError(error: Throwable?) {
         toast("showUnknownError" )
     }
 
-    override fun showPasswordSentMessage() {
+    override fun showPasswordSentMessage(email: String) {
         toast("showPasswordSentMessage")
-    }
-
-    override fun onUserSignedUp(user: User) {
-        Timber.tag("toto")
-        Timber.d(user.toString())
-        longToast(user.toString())
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
